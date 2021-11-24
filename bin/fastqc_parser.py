@@ -1,4 +1,4 @@
-#!/bin/env python3
+#!/usr/bin/env python3
 
 import glob 
 import os, sys, argparse
@@ -20,7 +20,7 @@ htmls = glob.glob( html_folder + "/*.html")
 
 def extract_read_info (file_path):
   base_name=os.path.basename(file_path)
-  read = os.path.splitext(base_name)[0].split('_')[2]
+  read = os.path.splitext(base_name)[0].split('_')[3]
   return read
 
 def extract_sample_id (file_path):

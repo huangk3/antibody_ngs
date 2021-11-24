@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os,sys
 import fastq
@@ -30,11 +30,11 @@ def stat(filename):
         q20_count += q20
         q30_count += q30
 
-    print("total bases:", total_count)
-    print("q20 bases:", q20_count)
-    print("q30 bases:", q30_count)
-    print("q20 percents:", 100 * float(q20_count)/float(total_count))
-    print("q30 percents:", 100 * float(q30_count)/float(total_count))
+    print("total bases: " + str(total_count))
+    print("q20 bases: " + str(q20_count))
+    print("q30 bases: " + str(q30_count))
+    print("q20 percents: " + str(100 * float(q20_count)/float(total_count)))
+    print("q30 percents: " + str(100 * float(q30_count)/float(total_count)))
 
 def main():
     if len(sys.argv) < 2:

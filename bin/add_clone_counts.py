@@ -20,7 +20,7 @@ with open(in_file) as i:
   for line in i: 
     info = line.strip().split('\t')
     info_dic = { header[n] : info[n] for n in range(0, n_fields)}
-    n_seq = info_dic['nSeqComplete']
+    n_seq = info_dic['nCDRsCombined']
     if n_seq not in clone_count_dic :
       clone_count_dic[n_seq] = 1 
     else:
@@ -36,6 +36,7 @@ with open(in_file) as i, open(out_file, 'w') as o:
   for line in i : 
     info = line.strip().split('\t')
     info_dic = { header[n] : info[n] for n in range(0, n_fields)} 
-    n_seq = info_dic['nSeqComplete']
-    f = clone_count_dic[n_seq]
-    o.write('\t'.join(info) + '\t' + str(f) + '\n')
+    n_seq = info_dic['nCDRsCombined']
+    if n_seq in clone_count_dic:
+      f = clone_count_dic[n_seq]
+      o.write('\t'.join(info) + '\t' + str(f) + '\n')
